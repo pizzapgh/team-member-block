@@ -1,5 +1,5 @@
 {
-	"name": "boilerplate",
+	"name": "team-members",
 	"version": "0.1.0",
 	"description": "Example block written with ESNext standard and JSX support – build step required.",
 	"author": "The WordPress Contributors",
@@ -11,8 +11,7 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"start": "wp-scripts start",
-		"packages-update": "wp-scripts packages-update",
-		"prepare": "husky install"
+		"packages-update": "wp-scripts packages-update"
 	},
 	"prettier": "@wordpress/prettier-config",
 	"stylelint": {
