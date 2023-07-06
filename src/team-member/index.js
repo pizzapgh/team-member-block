@@ -19,11 +19,10 @@ registerBlockType('blocks-course/team-member', {
             source: "html",
             selector: "h4"
         },
-        bio: {
-            type: "string",
-            source: "html",
-            selector: "p"
-        },
+        listItems: {
+            type: "array",
+            default: [],
+        }
     },
     edit: Edit,
     save: Save

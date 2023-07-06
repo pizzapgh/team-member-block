@@ -51,7 +51,8 @@ function Edit(_ref) {
     value: columns
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
     allowedBlocks: ['blocks-course/team-member'],
-    template: [['blocks-course/team-member'], ['blocks-course/team-member'], ['blocks-course/team-member']]
+    template: [['blocks-course/team-member'], ['blocks-course/team-member'], ['blocks-course/team-member']],
+    allowedBlocksCount: 4
   }));
 }
 
@@ -138,7 +139,8 @@ function Edit(_ref) {
   } = _ref;
   const {
     name,
-    bio
+    bio,
+    listItems
   } = attributes;
 
   const onChangeName = newName => {
@@ -147,9 +149,26 @@ function Edit(_ref) {
     });
   };
 
-  const onChangeBio = newBio => {
+  const onChangeListItem = (index, value) => {
+    const updatedListItems = [...listItems];
+    updatedListItems[index] = value;
     setAttributes({
-      bio: newBio
+      listItems: updatedListItems
+    });
+  };
+
+  const addListItem = () => {
+    const updatedListItems = [...listItems, ""];
+    setAttributes({
+      listItems: updatedListItems
+    });
+  };
+
+  const removeListItem = index => {
+    const updatedListItems = [...listItems];
+    updatedListItems.splice(index, 1);
+    setAttributes({
+      listItems: updatedListItems
     });
   };
 
@@ -159,13 +178,19 @@ function Edit(_ref) {
     onChange: onChangeName,
     value: name,
     allowedFormats: []
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+  }), listItems && listItems.map((item, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    key: index
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)("Member Bio", "team-member"),
-    tagName: "p",
-    onChange: onChangeBio,
-    value: bio,
-    allowedFormats: []
-  }));
+    tagName: "li",
+    onChange: value => onChangeListItem(index, value),
+    value: item,
+    allowedFormats: ["core/paragraph"]
+  }), index > 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => removeListItem(index)
+  }, "Remove"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: addListItem
+  }, "Add Item"));
 }
 
 /***/ }),
@@ -202,10 +227,9 @@ __webpack_require__.r(__webpack_exports__);
       source: "html",
       selector: "h4"
     },
-    bio: {
-      type: "string",
-      source: "html",
-      selector: "p"
+    listItems: {
+      type: "array",
+      default: []
     }
   },
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -236,15 +260,15 @@ function save(_ref) {
   } = _ref;
   const {
     name,
-    bio
+    listItems,
+    blocksCount
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     tagName: "h4",
     value: name
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "p",
-    value: bio
-  }));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, listItems.map((item, index) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+    key: index
+  }, item))), blocksCount > 4 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Maximum number of blocks exceeded."));
 }
 
 /***/ }),

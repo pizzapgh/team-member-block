@@ -37,6 +37,7 @@ export default function Edit({ attributes, setAttributes }) {
 					['blocks-course/team-member'],
 					['blocks-course/team-member'],
 				]}
+				allowedBlocksCount={4}
 			/>
 		</div>
 	);
