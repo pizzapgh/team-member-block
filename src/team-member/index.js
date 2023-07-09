@@ -22,6 +22,14 @@ registerBlockType('blocks-course/team-member', {
         listItems: {
             type: "array",
             default: [],
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "slime"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "void"
         }
     },
     edit: Edit,

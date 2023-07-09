@@ -28,18 +28,23 @@
 .wp-block-blocks-course-team-members .wp-block-blocks-course-team-member {
   margin: 10px;
 }
-.wp-block-blocks-course-team-members .wp-block-blocks-course-team-member h4 {
-  color: #222;
-  font-size: 22px;
-  font-size: bold;
-  margin: 0;
+
+.mrl-3up-header-container {
+  display: flex;
+  flex-direction: column;
 }
-.wp-block-blocks-course-team-members .wp-block-blocks-course-team-member p {
-  color: #565656;
-  font-size: 16px;
-  font-weight: 300;
-  margin-bottom: 5px;
-  margin-top: 5px;
+
+.has-slime-background-color {
+  background-color: #27fd7b;
+}
+
+.has-spark-background-color {
+  background-color: #fff501;
+}
+
+.wrap {
+  width: 50em;
+  margin: auto;
 }
 
 /*# sourceMappingURL=style-index.css.map*/

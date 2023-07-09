@@ -26,7 +26,7 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <div {...useBlockProps()}>
             <RichText
-                placeholder={__("Member Name", "team-member")}
+                placeholder={__("Heading", "team-member")}
                 tagName="h4"
                 onChange={onChangeName}
                 value={name}
@@ -36,7 +36,7 @@ export default function Edit({ attributes, setAttributes }) {
                 listItems.map((item, index) => (
                     <div key={index}>
                         <RichText
-                            placeholder={__("Member Bio", "team-member")}
+                            placeholder={__("List Item Text", "team-member")}
                             tagName="li"
                             onChange={(value) => onChangeListItem(index, value)}
                             value={item}
