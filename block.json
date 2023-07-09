@@ -20,10 +20,6 @@
 	"editorStyle": "file:./build/index.css",
 	"style": "file:./build/style-index.css",
 	"attributes": {
-		"columns": {
-			"type": "number",
-			"default": "2"
-		},
 		"align": {
 			"type": "string",
 			"default": "full"

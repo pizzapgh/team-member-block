@@ -34,13 +34,19 @@ const Edit = (props) => {
 			})}
 		>
 			{/* Add a div container with the desired class name */}
-			<RichText
-				placeholder={__('Heading', 'team-member')}
-				tagName="h2"
-				onChange={onChangeHeader}
-				value={header}
-				allowedFormats={[]}
-			/>
+			<div
+				{...useBlockProps({
+					className: `wrap`,
+				})}
+			>
+				<RichText
+					placeholder={__('Heading', 'team-member')}
+					tagName="h2"
+					onChange={onChangeHeader}
+					value={header}
+					allowedFormats={[]}
+				/>
+			</div>
 			<div
 				{...useBlockProps({
 					className: `has-${columns}-columns wrap`,

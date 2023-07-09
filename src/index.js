@@ -12,6 +12,10 @@ registerBlockType('blocks-course/team-members', {
 			source: "html",
 			selector: "h2"
 		},
+		"columns": {
+			"type": "number",
+			"default": "2"
+		},
 		"backgroundColor": {
 			"type": "string",
 			"default": "slime"
